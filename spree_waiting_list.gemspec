@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
 
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_waiting_list'
-  s.version     = '1.3.2'
+  s.version     = '1.3.3'
   s.summary     = 'Add a waiting list to your spree store'
   s.description = 'The waiting list allows users to signup to be notified via email when an items comes back into stock'
   s.required_ruby_version = '>= 1.8.7'
@@ -20,13 +20,13 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = false
 
-  s.add_dependency 'spree_core', '~> 1.3.2'
 
-  s.add_development_dependency 'capybara', '~> 1.1.2'
+  s.add_dependency(%q<spree_core>, ["~> 2.0.0"])
+  s.add_dependency(%q<capybara>, ["~> 2.1.0"])
+  s.add_dependency(%q<ffaker>, [">= 0"])
+  s.add_development_dependency 'factory_girl_rails', '~> 1.5.0'
   s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'factory_girl', '~> 2.6.4'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails',  '~> 2.9'
+  s.add_dependency(%q<rspec-rails>, ["~> 2.13"])
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'sqlite3'
 end
