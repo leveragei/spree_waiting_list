@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
 
   s.add_dependency(%q<spree_core>, ["~> 2.0.0"])
-  s.add_dependency(%q<capybara>, ["~> 2.1.0"])
+  s.add_dependency(%q<capybara>, ["~> 2.2.0"])
   s.add_dependency(%q<ffaker>, [">= 0"])
   s.add_development_dependency 'factory_girl_rails', '~> 1.5.0'
   s.add_development_dependency 'coffee-rails'
