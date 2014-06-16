@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency(%q<ffaker>, [">= 0"])
   s.add_development_dependency 'factory_girl_rails', '~> 1.5.0'
   s.add_development_dependency 'coffee-rails'
-  s.add_dependency(%q<rspec-rails>, ["~> 2.13"])
+  s.add_dependency(%q<rspec-rails>, ["~> 3.0.0"])
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'sqlite3'
 end
