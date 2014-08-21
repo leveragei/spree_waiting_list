@@ -9,9 +9,9 @@ Users and guests can request to be notified via email when a product/variant com
 Usage
 =======
 
-Add logic to your view to determine if the product is out of stock, then
-Trigger stock_requests/new via the browser 
-Or use post stock_requests/create to create the request
+-> Add logic to your view to determine if the product is out of stock
+
+-> Trigger "stock_requests/new" via the browser or use "post stock_requests/create" to create the request
 
 Testing
 -------
