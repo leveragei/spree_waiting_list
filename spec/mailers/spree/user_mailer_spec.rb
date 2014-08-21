@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UserMailer do
+describe UserMailer, :type => :mailer do
   context "back in stock" do
     let(:request) { mock_model(StockRequest, 
                                :email => 'test@123.com',
@@ -11,9 +11,9 @@ describe UserMailer do
       @mail = UserMailer.back_in_stock(request)
     end
 
-    specify { @mail.subject.should == "Hey! Widget is back in stock" }
-    specify { @mail.to.should      include("test@123.com") }
-    specify { @mail.from.should    include("admin@mysite.com") }
+    specify { expect(@mail.subject).to eq("Hey! Widget is back in stock") }
+    specify { expect(@mail.to).to      include("test@123.com") }
+    specify { expect(@mail.from).to    include("admin@mysite.com") }
     
   end
 end
