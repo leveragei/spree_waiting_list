@@ -1,29 +1,28 @@
 module Spree
   class StockRequest < ActiveRecord::Base
-    attr_accessible :product_id, :variant_id, :email
+
     belongs_to :product
     belongs_to :variant
 
-    validates :email, :presence => true,
-                      :format => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+    validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-    default_scope order('created_at desc')
+    default_scope { order('created_at desc') }
 
-    scope :notified, lambda {|is_notified| where(:status => is_notified ? 'notified' : 'new') }
-    scope :without_variant, where(:variant_id => nil)
+    scope :notified, lambda { |is_notified| where(status: is_notified ? 'notified' : 'new') }
+    scope :without_variant, where(variant_id: nil)
 
-    state_machine :status, :initial => 'new' do
+    state_machine :status, initial: 'new' do
       event :notify do
-        transition :from => 'new', :to => 'notified'
+        transition from: 'new', to: 'notified'
       end
 
-      after_transition :to => 'notified', :do => :send_email
+      after_transition to: 'notified', do: :send_email
     end
 
-  private
+    private
 
     def send_email
-      UserMailer.back_in_stock(self).deliver
+      Spree::UserMailer.back_in_stock(self).deliver
     end
 
   end
