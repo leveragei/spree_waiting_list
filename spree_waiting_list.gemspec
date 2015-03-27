@@ -15,9 +15,10 @@ Gem::Specification.new do |s|
   s.test_files   = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
-
-  s.add_dependency 'rails', '~> 4.1.4'
-  s.add_dependency 'spree_core', '~> 2.4.0.beta'
+  
+  version = '~> 2.4.1'
+  s.add_dependency 'spree_core', version
+  s.add_dependency 'rails', '~> 4.1.8'
 
   s.add_development_dependency 'haml-rails'
   s.add_development_dependency 'rspec-rails', '~> 3.0.0'
